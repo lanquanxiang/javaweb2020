@@ -1,3 +1,5 @@
+apache-tomcat-8.0.28
+/apache-tomcat-8.0.28
 .metadata
 bin/
 tmp/
@@ -12,6 +14,20 @@ local.properties
 .classpath
 .project
 .class
+
+.metadata
+.recommenders
+Servers
+RemoteSystemsTempFiles
+/Servers
+/RemoteSystemsTempFiles
+/.metadata
+/.recommenders
+=======
+.metadata
+.recommenders
+Servers
+RemoteSystemsTempFiles
 
 # External tool builders
 .externalToolBuilders/
@@ -51,13 +67,8 @@ local.properties
 
 # Annotation Processing
 .apt_generated/
-.apt_generated_test/
 
 # Scala IDE specific (Scala & Java development for Eclipse)
 .cache-main
 .scala_dependencies
 .worksheet
-
-# Uncomment this line if you wish to ignore the project description file.
-# Typically, this file would be tracked if it contains build/dependency configurations:
-#.project

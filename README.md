@@ -1,37 +1,25 @@
-# javaweb2020
-
-#### 介绍
-2020级JavaWeb课程代码
-
-#### 软件架构
-软件架构说明
-
-
-#### 安装教程
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 使用说明
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
-
-
-#### 特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+# 仓库说明
+1. 2020级Java Web应用开发课程代码
+2. 环境：Eclipse Neon 、 Tomcat8.0 、MySQL5.1
+# 课程考核
+-   考核方式：闭卷考试
+-   成绩计算方法：过程考核40%+末考60%
+-   ## 过程考核（超星平台）   
+1.  签到5%：未到0分、迟到0.6分、请假0.8分、公假和到勤1分。
+2.  在线学习环境安装5%：目标3
+3.  在线讨论5%：目标4
+4.  作业45%（1、4：目标3；2、3：目标1；5、6：目标2；7/8/9：目标4）
+5.  在线测试20%：目标1
+6.  随堂练习15%：目标2
+7.  在线学习次数5%：目标4
+-   ## 期末考核（闭卷考试）  
+1.  简答题4*5分=20分：目标1和目标2    
+2.  辨析题2*5分=10分：目标3和目标4    
+3.  程序设计题2*10分=20分：目标1    
+4.  综合应用题1-4题_10分+5-6题_5分=50分    
+    -   映射类的编写：目标1
+    -   接口编写：目标2
+    -   业务层编写：目标2
+    -   持久化层编写：目标2
+    -   过滤器：目标1
+    -   EL和JSTL：目标1
