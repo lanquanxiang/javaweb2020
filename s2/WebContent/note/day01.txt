@@ -1,0 +1,37 @@
+http://docs.pzhuweb.cn
+
+1.基础知识
+	1. JavaSE标准开发 JavaEE企业级开发
+	2. SDK软件开发工具包    
+		JDK： Java开发工具包
+		JRE： Java运行时环境
+		JVM：Java虚拟机	
+	3. B/S和C/S
+		成本（B/S）
+		效率（C/S)
+		安全性(C/S)
+	4. HTTP步骤
+		建立连接、发送请求、得到响应、关闭连接
+		HTTP1.1和1.0的区别：1.1版本优化了连接的建立和关闭，永不频繁的建立和关闭连接
+	5. HTTP请求消息
+		1. 请求行（基础信息描述） 版本、请求地址、请求方式 默认GET
+		2. 头
+			Accept 接收的类型
+			host 主机
+			referer 防盗链、追踪来源
+		3. 实体
+		
+	6. HTTP响应消息
+		1. 响应行 ：版本 状态码，状态码的描述
+			200 ok 正常、404 NOT FOUND 未找到、500 服务器错误 、302 重定向
+		2. 头
+			location 新地址
+			禁止缓存
+			content-type 响应的类型（text/html） MIME
+			refresh 刷新
+		3. 实体
+	
+	7. GET和POST的区别
+		1. get默认，post文件上传必须
+		2. post相对安全（get将信息放在URL地址栏中，post放在实体中）
+		3. get大小有限制，post无限制
