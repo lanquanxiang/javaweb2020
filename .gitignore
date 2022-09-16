@@ -1,5 +1,4 @@
-apache-tomcat-8.0.28
-/apache-tomcat-8.0.28
+
 .metadata
 bin/
 tmp/
@@ -14,20 +13,6 @@ local.properties
 .classpath
 .project
 .class
-
-.metadata
-.recommenders
-Servers
-RemoteSystemsTempFiles
-/Servers
-/RemoteSystemsTempFiles
-/.metadata
-/.recommenders
-=======
-.metadata
-.recommenders
-Servers
-RemoteSystemsTempFiles
 
 # External tool builders
 .externalToolBuilders/
@@ -72,3 +57,9 @@ RemoteSystemsTempFiles
 .cache-main
 .scala_dependencies
 .worksheet
+/apache-tomcat-8.0.28
+apache-tomcat-8.0.28
+/Servers
+Servers
+build
+/build

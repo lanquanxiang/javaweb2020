@@ -1,0 +1,55 @@
+Java Web:Java进行服务器端的开发
+C/S和B/S
+资源：http://docs.pzhuweb.cn
+
+一、基础知识
+1. JavaSE、JavaEE、JavaME
+	Java SE：Java标准开发（面向对象程序设计）
+	Java EE：Java企业级开发（Java Web + 企业级框架）
+	Java ME：Java移动开发（×）
+2. SDK、JDK、JRE、JVM
+	SDK：软件开发工具包
+	JDK：Java开发工具包（JDK8、JDK11、JDK17）
+	JRE：Java运行时环境
+	JVM：Java虚拟机
+3. B/S和C/S的区别
+	成本（B/S）：上课教材（纸质、电子）
+	效率性能（C/S）：大型的游戏
+	安全性（C/S）
+4. HTTP 1.0和HTTP1.1的特点及区别
+	HTTP：超文本传输协议
+	HTTPs：安全的超文本传输协议
+	HTTP：步骤
+		1. 建立连接
+		2. 发送请求
+		3. 得到响应
+		4. 关闭连接
+	1.0和1.1的区别：
+		一次建立，多次请求；减少了连接的建立和关闭次数，不用频繁创建和关闭连接
+	目前，所有的浏览器使用1.1
+5. HTTP消息的构成
+	1. HTTP请求
+		1.状态（请求方式、请求地址、版本1.1）
+		2.头信息head
+			1. Accept接收的类型
+			2. HOST 主机地址
+			3. referer 追踪网站来源（防盗链）
+		3.实体内容body
+	2. HTTP响应
+		1.状态（响应状态码、状态码的描述、版本1.1）
+		2.头信息head
+			1. Content-Type 响应类型
+			2. Location 新的地址
+			3. 禁止缓存
+			4. 刷新refresh
+			5. 内容打开方式
+		3.实体内容body
+6. GET和POST区别
+	1. GET默认、POST文件上传时必须设置
+	2. POST相对安全（信息放在实体中）、GET信息拼接在URL后面
+	3. GET传输信息有限制、POST没有限制
+7. 常见的状态码
+	1. 200 服务器正常 ok
+	2. 404 文件文件找到
+	3. 500服务器程序异常
+	4. 301/302 重定向
