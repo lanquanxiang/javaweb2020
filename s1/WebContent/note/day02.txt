@@ -1,0 +1,87 @@
+一、环境配置
+1. 注意工作空间的编码（防止项目导入导出的乱码）
+2. JSP编码（能够在页面编写和保存中文）
+3. WEB-INF不可直接访问
+4. TOMCAT--bin（命令）、conf（配置）、lib（库）、webapps（项目）
+二、MVC
+1. 概念：模型-视图-控制器
+2. 作用：解耦合（设计思想）
+三、前端基础
+1. 路径
+	1. 绝对路径
+	2. 相对服务器路径 /开头[重点]
+	3. 相对路径（相对于当前页面自身）
+2. 表单属性
+	1. action提交路径（可以是绝对路径、相对路径）
+	2. method提交方式（get/post）
+	3. enctype编码方式（文件上传时需要特殊设置）
+3. 表单控件【所有控件必须要有name属性】(考试：JSP页面设计)
+	1. 输入控件 <input type=""/>
+		1.文本框text 密码框Password 单选框radio 复选框CheckBox
+			· 同一组单选框必须设置相同的name（必须）
+			· 复选框同样（建议）
+		2. 提交按钮submit 重置按钮reset 普通按钮button 图像按钮image
+		3. 文件域file 隐藏域hidden
+	2. 其他控件
+		下拉列表 select（size/multiple）   文本区域标记textarea
+4. CSS编写规则 div{width:"20px"}
+5. CSS三种样式表
+	1. 行内样式
+	2. 内部样式
+	3. 外部样式
+6. CSS选择器
+	1. 标签选择器   2. #id选择器  3.   .class选择器
+7. JavaScript
+	1. onchange onsubmit
+	2. getElementById
+	3. isNaN  ==""   正则表达式test
+实践：【考试】
+	1. 页面（HTML、JSP）表单  regist.jsp
+	2. 用户名、密码、年龄  提交
+	3. 用户名不能为空==""、年龄必须是数字isNaN、密码不能少于6位
+	4. 表单提交时提示用户
+	
+JSP
+1. 什么是JSP
+	1. Java Server page 服务器页面
+	2. 本质上是Java类
+	3. 可以编写html、css和js的Java类
+	4. JSP的前身是Servlet（Java类，服务器端程序）
+	
+	HTML（只有网页内容）
+	JSP（直接编写网页内容+java特点）
+	Servlet：处理请求和响应的Java类（HTTP）直接运行(所有的网页信息全部都需要使用代码来进行输出)
+	Java:java类（程序）一般不能直接运行，main入口
+2. JSP特点
+	1. Java有的特点 Java API
+	2. Servlet API
+	3. HTML
+3. JSP执行过程
+	请求→JSP容器→将JSP转换为Servlet（java）→编译class字节码→执行
+4. JSP构成：JSP指令+HTML+Java相关
+	Java相关：
+		1. Java代码片段<%  完整的句子（有分号）  %>
+		2. 表达式（输出）[建议]<%= 式子（没有分号）   %>
+		3. 变量定义<%! 全局变量   %>
+		4. 注释 <%--   --%>
+5. JSP指令 <%@    %>   page  include taglib
+6. JSP page指令
+	1. language 取值只有java  表示当前使用java语言编写的
+	2. contentType 上下文类型，表示了浏览器显示方式和编码text/html  MIME 文本
+	3. pageEncoding 页面编码方式
+	4. import导入其他的类和库
+	5. ErrorPage 处理错误的页面在哪里？ 取值：URL
+		A存在错误  A说：B是给我处理错误的   ErrorPage="B"
+		B承认自己是处理错误  isErrorPage="true"  false(不能接收Exception信息)
+	6. 配置网站全局错误页面
+		1. 在配置文件中增加全局信息
+		2. 编写错误页面
+7. Java常见运行时异常【考试】
+	1. 算术逻辑异常
+	2. 数组越界
+	3. 数字转换异常
+	4. 类型转换异常
+	5. 空指针异常
+
+	
+		
