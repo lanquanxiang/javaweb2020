@@ -1,14 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" errorPage="07处理错误的页面.jsp"%>
+    pageEncoding="UTF-8" isErrorPage="true"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>产生错误的页面</title>
+<title>程序出错</title>
 </head>
 <body>
-<%
-	int x= 1/0;
+<% 
+	response.setStatus(200);
 %>
+你的程序出错了！
+<%=exception %>
 </body>
 </html>
