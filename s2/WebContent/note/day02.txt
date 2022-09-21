@@ -37,7 +37,7 @@ http://docs.pzhuweb.cn
 	5. css常用选择器：标签选择器 E 、 #id  、  .class
 	6. JavaScript的事件【掌握】
 		·onchange 值被改变并且失去焦点：验证某一个控件
-		·onsubmit 表单提交：验证整个表单
+		·onsubmit 表单提交：验证整个表单[需要有返回值的 false验证失败，true验证成功]
 	7. JavaScript的验证【掌握】
 		·判断是否输入了内容   ==""
 		·判断是否是数字  isNaN()
@@ -50,6 +50,47 @@ http://docs.pzhuweb.cn
 			密码长度不少于6位
 			年龄不能为空且必须是数字
 		4. 如果不符合要求，需要进行提示
+2. 服务器端技术JSP
+	1. 概念
+		·Java server page Java服务器页面
+		·用Java编写的页面（html、css、js）
+		·本质上就是java的类
+	2. 执行过程
+		请求jsp → 容器将jsp转换为Servlet → 编译为class文件 → 执行
+		
+	3. 技术
+		HTML：只能写网页
+		JSP:Servlet的进阶版（本质上是Servlet）可以直接编写html(既可以编写html网页，又可以加入Java代码)
+		Servlet：.java 可以处理请求和响应的java类（默认有Service方法来处理请求）
+		Java类：.java  编写Java程序（一般不能直接运行，除非入口main）
+	4. JSP特点
+		·功能非常的强大
+		·java+html+处理请求和响应
+		· JDK API + Servlet API（HTTP请求和响应）
+	5. JSP页面的构成（HTML+Java代码+JSP指令）
+	6. JSP指令三个（page页面本身、include导入其他页面、taglib标签库）
+	7. JSP的page指令
+		<%@  指令  %>
+			·language="java"当前页面的编写语言，只有java
+			·contentType取值MIME表示当前浏览器识别时使用的方式和编码
+			·pageEncoding表示页面在转换时的编码
+			·import导入Java包  <%@page import="java.util.Date"%>
+			·buffer="8kb" 当前页面的缓存
+		<%= 表达式   %>
+		<%   Java代码段   %>
+		<%--  注释  --%>
+		<%! 全局变量  %>
+	8. 处理错误
+		1. errorPage="URL" 表示当前页面可能发生错误，然后在URL去处理错误
+		2. isErrorPage = 
+		3. 常见的运行时异常【考试--辨析】（try catch、针对性的解决方案）
+			1. 算术逻辑异常
+			2. 数组越界
+			3. 空指针异常（一般错误的位置不在调函数的地方，而是在赋值的地方）
+			4. 数字类型转换异常
+			5. 类的类型转换异常
+			
+			
 		
 			
 			   
