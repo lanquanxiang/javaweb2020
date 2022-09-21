@@ -1,0 +1,58 @@
+http://docs.pzhuweb.cn
+一、环境存在的问题
+1. WEB-INF网站配置文件，不允许直接访问（服务器内部转发）
+2. build path 包含 JRE和Server
+3. tomcat的目录结构：bin、conf、lib、webapps
+4. 修改编码（工作空间的编码、文件编码、页面JSP编码）
+二、MVC
+1. 概念 model模型、view视图、controller控制器
+2. 是一种开发或设计的思想（解耦：按照功能角色对程序进行划分）
+3. MVC各个模块如何进行交互？javaweb
+	view→controller→model
+	JSP →Servlet→JavaBean（java类）
+三、View视图（用户能够看见：客户端技术、服务器端技术）
+1. 前端基础 HTML、CSS、JavaScript
+	1. 路径
+		·绝对路径（清楚、不会因为网页位置的变化发生改变）-- 路径太长
+		·相对路径
+			·相对于当前页面（同一目录、上一目录、子目录）（路径短、自动将相对地址拼接在前面）--相对位置发生变化，路径也会变
+			·相对服务器路径【掌握】始终相对于当前项目的根路径 始终是以/开头（webcontent/src）
+				但是这个路径和部署的时候有关，idea部署的时候没有项目名（解决：通过代码来获取路径）
+	2. <form>属性
+		·action 提交地址
+		·method 提交方式get/post
+		·enctype编码方式【文件上传】
+	3. 控件【考试】
+		1. 输入控件<input type="" />
+			text文本 password 密码    radio单选   CheckBox复选
+			submit提交 reset重置 button按钮 image图像按钮
+			文件域file  隐藏域hidden
+		2. 其他控件
+			下拉选择   select（size、multiple）   文本区域标记 textare
+		3. 注意
+			· 同一组单选必须设置相同的名字
+			· 复选建议名字相同
+			· 【上学期区别】所有的控件必须要有name属性（服务器端才能接收到数据）
+	4. css：编写规则、三种样式表
+	5. css常用选择器：标签选择器 E 、 #id  、  .class
+	6. JavaScript的事件【掌握】
+		·onchange 值被改变并且失去焦点：验证某一个控件
+		·onsubmit 表单提交：验证整个表单
+	7. JavaScript的验证【掌握】
+		·判断是否输入了内容   ==""
+		·判断是否是数字  isNaN()
+		·判断是否符合需求 正则表达式 test
+	
+	实践：
+		1. 表单：文本框、密码框、年龄（数字）
+		2. 提交表单时进行验证
+		3.   姓名不能为空
+			密码长度不少于6位
+			年龄不能为空且必须是数字
+		4. 如果不符合要求，需要进行提示
+		
+			
+			   
+		
+		
+		

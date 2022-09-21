@@ -10,11 +10,10 @@ span{
 	color:red;
 }
 </style>
+<script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript">
 	function checkdata() {
-		document.querySelectorAll("span")[0].innerHTML="";
-		document.querySelectorAll("span")[1].innerHTML="";
-		document.querySelectorAll("span")[2].innerHTML="";
+		$("span").html("");
 		var username = document.querySelectorAll("input")[0].value;
 		var password = document.querySelectorAll("input")[1].value;
 		var age = document.querySelectorAll("input")[2].value;
