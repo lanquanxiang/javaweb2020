@@ -90,7 +90,7 @@
 		·contentType 告知浏览器解析时的文件类型以及编码【掌握】MIME
 		·pageEncoding页面转换时的编码
 		·buffer JSP缓冲区的大小 ，如果设置为0kb，不缓存内容，直接输出
-		·extends、import 继承其他的类、导入其他的类
+		·extends 继承其他的类、import导入其他的类
 			<%@page import="java.util.Date"%>
 		·errorPage--声明处理错误的页面位置（URL） 假设A页面存在错误，但是A不处理，声明由B来进行错误处理
 			如果程序存在错误，不处理，非常不友好
