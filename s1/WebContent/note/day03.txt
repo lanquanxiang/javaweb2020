@@ -1,0 +1,51 @@
+一、JSP指令 page、include、taglib
+1. include包含
+	在JSP页面中包含另外一个页面（应用：网页导航栏、网页底部说明）
+	类似：函数（作为程序的一部分抽取出来，方便维护和重用）
+	<%@ include file="被导入页面的URI" %>
+	
+2. jsp动作元素<jsp:include> 包含
+	<jsp:include page="被导入页面的URI"></jsp:include>.
+	其他的动作元素：【了解】
+		<jsp:forward> 转发
+	
+3. 区别
+	指令：直接包含所有代码，之后在运行【预设一些通用的变量或者模板】
+	动作元素：先运行产生结果，再包含【建议：防止代码冲突】
+	
+4. taglib标签库（引入其他的标签） JSTL的时候需要用到
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="引用的库的前缀"%>
+
+二、JSP内置对象【重要】
+	1. 什么是内置对象
+		不需要new ，直接使用的对象
+		JSP脱胎于Servlet，Servlet中已经帮我们初始化好了（看源码）
+		out、request、response、session、application、page、pageContext、config、Exception
+		【掌握】类型
+	2. out输出对象 javax.servlet.jsp.JspWriter
+		重要方法：out.print()
+		【重点】注意输出顺序
+		response.getWriter()【掌握、考试】
+	3. request和response【重要、考试】
+		1. HTTP头
+		2. HTTP实体内容
+		3. 浏览器cookie
+		4. 编码
+		5. 视图选择（响应另外的视图）
+	4. HTTP头信息
+		1. request.getContextPath()获得上下文路径（用来拼接绝对路径）
+		2. request.getHeader("")  读取referer头，可以用来做防盗链
+		----------------------------
+		1. response.setHeader("头","值");
+			应用：禁止缓存、定时刷新、定时跳转
+			
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
