@@ -28,7 +28,7 @@
 		response.getWriter()【掌握、考试】
 	3. request和response【重要、考试】
 		1. HTTP头
-		2. HTTP实体内容
+		2. HTTP实体内容（请求参数）
 		3. 浏览器cookie
 		4. 编码
 		5. 视图选择（响应另外的视图）
@@ -38,8 +38,47 @@
 		----------------------------
 		1. response.setHeader("头","值");
 			应用：禁止缓存、定时刷新、定时跳转
+		2. 设置响应的状态码
+			response.setStatus(200);
+			response.sendError(404);
+	5. 处理HTTP实体内容（接收和响应参数）【重要重要重要】【考试】
+		1. 接收参数的方法【重要】
+			request.getParamter("参数的名字")   控件的name属性值
+				注意：
+					1. 返回类型是String 【注意类型转换异常】
+					2. 参数的名字不存在或者不对，返回null【注意空指针异常】
+					3. 如果这个参数只有一个值，我们就用这个方法
+						存在多个控件有相同的名字（控件名字重复、复选框）
+					4. 如果有多个值：getParameterValues	返回的是字符串的数组 x[0] x[1]
 			
-		
+		实践：接收参数并输出【考试】20分  jsp→jsp   jsp→servlet
+			问题1：数组的输出
+				for循环  arrays
+			问题2：地址栏显示
+				更改提交方式
+			问题3：编码
+	6. cookie的处理
+		1. request.getCookies()
+		2. response.setCookie()
+	7. 编码
+		1. request来设置请求编码【post方式:实体内容】
+			request.setCharacterEncoding("UTF-8");
+			注意：需要在读取参数之前被调用。
+			get方式乱码（重新对字符进行解析：字符串→字节数组→重新编码为字符串）
+		2. response.setCharacterEncoding("UTF-8"); 设置响应编码
+			单独使用，可能仍然不能进行通信（不可读），需要设置响应的内容内容
+				response.setContentType("text/html");
+				【掌握】response.setContentType("text/html;charset=utf-8");
+	8. 选择其他视图URL
+		1. 请求转发
+			request.getRequestDispatcher("URL").forward(request, response);
+		2. 重定向
+			response.sendRedirect("URL");
+		3. 区别【掌握】
+			什么时候用请求转发？什么时候用重定向？
+			案例教程上有
+		应用：servlet中使用
+				
 		
 		
 		
