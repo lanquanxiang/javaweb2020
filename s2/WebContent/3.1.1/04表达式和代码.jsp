@@ -20,7 +20,16 @@ y=<%=y %><br/>
 
 <%
 	//out.print("x="+x);
+	if(x==1){%>
+		x=<%=x %>
+		<%
+	}else{
+		out.print("y="+y);
+	}
 
 %>
+
+
+
 </body>
 </html>

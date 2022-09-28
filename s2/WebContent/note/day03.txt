@@ -1,0 +1,130 @@
+一、指令include
+	1. include包含其他页面
+		作用：将多个页面共有的部分先提取出来，再包含回去
+		<%@ include file="footer.jsp"%>
+	2. jsp动作元素（标识） <jsp:include>
+		作用：包含其他页面
+		<jsp:include page="footer.jsp"></jsp:include>
+	3. 区别
+		【注意】这两种方式都会导入两套html标签
+			解决：以信息片段的方式来导入，jspf 后缀名
+		<%@include > --- 包含的源代码
+			注意：java代码的变量冲突，需要进行协调，不能使用重复的变量
+				优点：将一些公共的变量或者设置进行导入
+		<jsp:include>--- 包含的是执行结果
+			注意：一般使用在没有Java代码的页面
+	4. 其他的动作元素
+		<jsp:forward> 请求转发【了解】
+			注意:请求转发URL不会发生变化   产生问题：地址栏是A，但是内容是B，内容和URL不一致
+二、指令taglib
+	1. 作用
+		导入其他的标签库 JSTL JSP标准标签库
+	2. 语法
+		<%@taglib uri="标签库地址" prefix="前缀"%>
+			前缀：避免命名冲突  <c:if>
+三、内置对象
+	1. 什么？
+		已经被jsp初始化好了，不要再new创建对象，直接可以使用
+	2. 9个内置对象【记忆、类型】
+		1. 一个输出  out
+		2. 两个HTTP 请求和响应  request和response
+		3. 三个存储对象	request、session、application
+		4. 四个没什么用的对象 page、pageContext、config、Exception
+四、out对象jspWriter
+	1. 输出 out.print()
+	2. 【了解】一般情况下，不使用out，它的输出要先输出到jsp缓冲区，然后再到response的缓冲区，在输出
+		问题：效率不高 、输出顺序会收到影响
+	3.【掌握】
+		response.getWriter().print()
+五、request和response【非常重要】处理请求和响应
+	1. 作用
+		1. 处理HTTP头信息（读取头信息 ---- 设置头信息）
+		2. 处理HTTP实体消息（读取用户发送的数据----向浏览器输出内容）
+		3. 处理cookie（读取cookie的数据----向浏览器写入cookie）【后续在讲】
+		4. 处理编码（处理请求数据的编码----设置响应的类型和编码）
+		5. 选择视图（请求继续提交给其他视图----重新选择其他视图）
+	2. HTTP头
+		1. request可以读取请求的必要信息：例如请求上下文、提交方式、IP地址
+			request.getContextPath() 获取请求上下文【掌握】 作用：将相对路径构造为绝对路径，防止相对路径错误
+				--- 返回的路径永远是固定（webcontent、src） 路径结尾不含“/”
+		2. request获得HTTP头信息
+			request.getHeader("referer") 防止盗链：追踪访问来源
+		----------------------------------------------------------
+		3. response设置头信息
+			response.setHeader("头信息","值");
+			引用：
+				1.自动刷新
+				2.定时跳转 response.setHeader("refresh", "2;url=http://www.pzhu.cn");【掌握】
+				3.禁止缓存【了解】
+				4.设置响应内容类型 jsp页面中一般不需要，只有在servlet中需要
+				5.设置状态码 response.setStatus(200)   response.sendError(500)
+	3. HTTP实体（用户发送的数据）【重要】
+		1. request可以接收用户发送的数据【考试、非常重要】
+			request.getParamter("控件的名字")【重要。重要。重要】
+				注意：	
+					1. 返回类型是String 【需要进行类型转换，可能发生类型转换异常】
+					2. 如果参数（控件没有名字或者名字输错了）不存在，返回null 【可能存在空指针异常】
+					3. 如果存在多个值【存在相同名字的控件；复选框】，就需要使用getParameterValues
+						单选、复选、下拉列表：只要用户没有选择，就没有值，接收null
+					4. 存在多个值，getParamter只能得到一个值（不建议）
+					5. getParameterValues返回的是字符串数组【使用数组来接收值，x[0] x[1]】
+					6. 如果只有一个值，仍然是数组，只是数组的长度为1
+		 实践：得到值并输出【考试 jsp→Servlet 20分】
+		 	1. 信息在地址栏显示出来了
+		 		解决：post提交
+		 	2. 数组不显示
+		 		解决：使用for循环来解决 ：注意数组是否为null
+		 			Arrays.toString
+		 	3. 数组乱码了？
+		 		解决：设置请求和响应的编码
+		 			request.setCharacterEncoding("utf-8"); 
+		-----------------------------------------------------
+		2. response得到输出流，进行内容输出
+	4. 编码
+		1. 请求编码
+			request.setCharacterEncoding("utf-8"); 【掌握】
+			说明：get不会乱码，URL编码解码（重新构造字符串） 字符串String → 使用乱码字符串所采用的字符集转换为字节数组 → 字节数组按照UTF-8重新构造为String
+				此方法只适用于post提交乱码
+				此方法必须在读取参数之前被调用
+		2. 响应编码
+			1. 如果只设置编码，在Servlet中会存在问题，浏览器不认识
+			2. Servlet中既需要设置编码，有需要设置类型
+				response.setCharacterEncoding("utf-8");
+				response.setContentType("text/html");
+				=====
+					response.setContentType("text/html;charset=utf-8");【掌握】
+			3. 设置编码和类型必须是在response使用之前
+	5. 视图选择
+		1. 请求转发 request		
+			request.getRequestDispatcher("teacher.jsp").forward(request, response);
+		2. 重定向 response
+			response.sendRedirect("teacher.jsp");
+		3. 区别
+			1. 请求转发的地址栏不会发生变化(内容和地址不一致，相对地址相对的地址栏)；重定向会发生变化
+				注意：相对地址跳转出错
+				解决：将相对地址修改为相对服务器地址
+			2. 请求转发一次请求，一次响应；重定向多次请求多次响应
+			3. 请求转发的时候会携带request和response；重定向丢弃request
+			4. 请求转发一般转发服务器内部，包括不可直接访问的内容；重定向可以是任意地址，外部地址
+		
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
