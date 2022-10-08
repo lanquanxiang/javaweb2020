@@ -71,9 +71,9 @@
 				【掌握】response.setContentType("text/html;charset=utf-8");
 	8. 选择其他视图URL
 		1. 请求转发
-			request.getRequestDispatcher("URL").forward(request, response);
+			request.getRequestDispatcher("URL").forward(request, response);【重点】
 		2. 重定向
-			response.sendRedirect("URL");
+			response.sendRedirect("URL");【重点】
 		3. 区别【掌握】
 			什么时候用请求转发？什么时候用重定向？
 			案例教程上有
