@@ -27,11 +27,12 @@
 		【重点】注意输出顺序
 		response.getWriter()【掌握、考试】
 	3. request和response【重要、考试】
-		1. HTTP头
-		2. HTTP实体内容（请求参数）
-		3. 浏览器cookie
-		4. 编码
-		5. 视图选择（响应另外的视图）
+		1. HTTP状态行 
+		2. HTTP头
+		3. HTTP实体内容（请求参数）
+		4. 浏览器cookie
+		5. 编码
+		6. 视图选择（响应另外的视图）
 	4. HTTP头信息
 		1. request.getContextPath()获得上下文路径（用来拼接绝对路径）
 		2. request.getHeader("")  读取referer头，可以用来做防盗链

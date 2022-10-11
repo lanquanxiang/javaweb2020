@@ -1,0 +1,58 @@
+一、内置对象（存储对象：保存信息，用于通信）request、session、application
+1. 作用域
+	page：页面本身（一般不使用）
+	request：一次请求（请求转发中request一直有效）
+	session：一次会话（打开浏览器，建立连接--关闭连接）【掌握】
+	application：服务器级（服务器不关闭，所有用户共享）
+2. 如何保存信息 CRUD
+	1. 增加数据
+		request.setAttribute("名称key","保存的数据");
+			说明：key String类型，唯一，如果名字重复，数据会被覆盖（更新）
+				保存的数据可以使任意类型
+	2. 删除数据
+		request.removeAttribute("key");
+	3. 修改数据
+		request.setAttribute("名称key","新的数据");
+	4. 查询数据
+		request.getAttribute("名称key")
+		注意：
+			1. 得到的值类型是object，需要进行类型转换，注意类型转换异常
+			2. 如果name不存在，得到的null，需要注意可能存在空指针异常
+3. 所属类型
+	1. HttpSession
+	2. ServletContext
+	3. 如何通过request来获得其他存储对象？
+		HttpSession session = request.getSession();【掌握】
+		ServletContext application = request.getServletContext();
+
+4. session
+	一般保存用户的信息或者是数据
+	方法：session的销毁
+	应用：注销、退出、超时下线
+		1. session.removeAttribute("登录的信息");
+		2. session.setAttribute("登录的信息","未登录的标记");
+		3. session.invalidate(); 使这个session失效（所有信息都不可用）
+		4. session.setMaxInactiveInterval("时间"); 超时下线
+			1. 时间的单位是秒
+			2. 如果是0或者是负数，session永远不过时
+			
+二、四个没有太大作用的内置对象
+1. page 代表页面本身
+2. pageContext 可以通过这个对象找到其他对象
+	实用：EL表达式中，可以通过此对象来访问其他对象
+3. config 配置
+	数据初始化可能需要实用
+4. exception 异常对象
+	并不是所有的JSP都有这个对象，只有在page指令中设置了isErrorPage="true"	
+	
+三、JavaBean
+1. 什么是JavaBean?
+	就是java文件，可重用
+2. 分类
+	· 值JavaBean（存储信息，封装信息）【考试】
+	· 工具JavaBean（方法，处理数据）
+3. 编写值javaBean的规则（考试）
+	
+
+		
+	
