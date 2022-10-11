@@ -53,6 +53,16 @@
 	· 工具JavaBean（方法，处理数据）
 3. 编写值javaBean的规则（考试）
 	
+四、在JSP中使用JavaBean（了解）
+1. 在JSP中创建类
+2. 为类的属性赋值
+3. 读取类的属性值
+
+五、内置对象分类
+错误对象：exception
+servlet对象：page、config
+输入输出对象：request、response、out
+通信对象：session、application、pageContext
 
 		
 	
