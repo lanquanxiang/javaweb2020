@@ -1,0 +1,80 @@
+三、request、session、application存储对象
+1. 作用：保存信息，进行（JSP和JSP、Servlet和Servlet、JSP和Servlet之间）通信
+2. 保存信息的方法（掌握、【考试】）CRUD
+	1. 增加 request.setAttribute("key","value");
+		说明：key自定义的字符串，value任意类型
+			key唯一，如果同一个key多次存入，值被覆盖
+	2. 删除 request.removeAttribute("key")
+	3. 修改 request.setAttribute("key","value");
+	4. 查询 request.getAttribute("key")
+		说明：
+			1. 如果key不存在，则返回null，可能产生空指针异常
+					if(XXX==null) if(XXX==null || XXX.equals(""))  if("".equals(XXX))
+			2. 如果存在，返回的类型是object，注意可能需要进行类型转换，可能发生类型转换异常
+3. 存储对象的区别
+	1. 记住对象的所属类
+		HttpServletRequest
+		HttpSession
+		ServletContext
+	2. 【掌握】Servlet中不存在JSP内置对象，只有request
+		request.getSession() 得到session【掌握】
+		request.getServletContext() 得到Application
+	3.作用域
+		page：页面本身
+		request：一次请求（唯一：请求转发）
+		session：一次会话（和服务器建立连接，一直到断开连接为止）
+				断开连接：1.主动断开（退出、注销）2.超时断开
+				
+				1.覆盖关键信息但是不销毁session session.setAttribute("flag","")
+				2.删除关键信息但是不销毁session session.removeAttribute("flag")
+				3.删除整个session  session.invalidate()
+				4.超时删除（定是删除） session.setMaxInactiveInterval(时间，单位是秒)
+				补充：服务器容器可以配置session的超时断开时间
+				
+				
+		application：服务器级存储（服务器启动，关闭）--一般不使用
+			保存服务器的配置信息，不用来保存用户信息【所有用户共享】
+四、没有什么用的对象
+1. page
+2. pageContext页面上下文（唯一 EL表达式）
+	可以通过这个对象，找到其他对象
+3. config 配置
+	Servlet中可能遇到，用来初始化servlet
+4. exception
+	并不是所有的JSP都有，isErrorPage="true" 才会存在这个对象
+
+补充：内置对象分类
+错误对象：exception
+servlet对象：page、config
+输入输出对象：request、response、out
+通信对象：session、application、pageContext
+
+JavaBean
+1. 什么是JavaBean
+	可重用的Java类
+2. 分类
+	值JavaBean（封装数据 get/set）
+	工具JavaBean（处理数据的方法）
+3. 【掌握】映射类的编写
+	将数据表映射成值JavaBean【考试】
+	【掌握】POJO的编写规则
+		1. 成员变量的名字必须和表的字段名一致
+		2. 成员变量的首字母必须小写
+		3. 成员变量私有化，然后提供可以访问这些变量的共有方法 get/set
+		4. 必须提供无参的构造方法
+		5. 选择性提供有参构造方法
+		6. 所有的基础数据类型必须使用包装集类型
+			int Integer
+			double  Double
+			boolean  Boolean
+4. 了解
+	jsp中使用动作标识来操作JavaBean
+	
+
+
+
+
+
+
+	
+	
