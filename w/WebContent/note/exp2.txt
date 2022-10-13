@@ -1,0 +1,77 @@
+index.jsp
+	1. form action="" method="post"
+	2. 文本框 年龄文本框 复选框 提交按钮
+todo.jsp
+	1. 重置编码
+	2. 定义String变量接收名字
+	3. 定义String变量接收年龄
+	4. 定义String[] 变量接收爱好
+	5. 判断名字是否完整
+		null ""
+		if(x==null || x.equals("") ){
+			将错误信息存储到域对象中;
+			请求转发或者是重定向到error.jsp;
+			return;
+		}
+	6. 判断年龄是否合法
+		null "" abc
+		if(x==null || x.equals("") ){
+			将错误信息存储到域对象中;
+			请求转发或者是重定向到error.jsp;
+			return;
+		}
+		int age = 0;
+		try{age = Integer.parseInt(x);}catch(e){
+			将错误信息存储到域对象中;
+			请求转发或者是重定向到error.jsp;
+			return;
+		}
+	7. 判断爱好
+		null
+		if(x==null){
+			将错误信息存储到域对象中;
+			请求转发或者是重定向到error.jsp;
+			return;
+		}
+	8. 读取登记表 application
+		登记表用什么数据类型？集合 list、set、map
+		list：是否重复--for遍历
+		set：是否重复--直接存入（重复，返回值）
+		map<username,User>
+	9. 将用户的信息封装为User，然后存入登记表
+	10. 根据登记表存入结果，判断是否已经被登记
+		如果被登记
+			将错误信息存储到域对象中;
+			请求转发或者是重定向到error.jsp;
+			return;
+	11. 更新登记表 set application
+		请求转发或者重定向到show.jsp
+
+show.jsp
+	1. 读取登记表
+	2. 遍历并打印登记表
+	3. 超链接到destory.jsp
+	
+destory.jsp	
+	1. 销毁session
+	2. 自动跳转到index.jsp
+
+error.jsp
+	1. 从域对象将错误信息取出来
+	2. 显示 out  <%=  %>
+	3. 自动跳转到index.jsp
+	
+404.jsp	
+	自己复习
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

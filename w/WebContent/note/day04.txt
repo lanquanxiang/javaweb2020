@@ -1,0 +1,106 @@
+三、存储对象 request、session、application
+1. 存储信息，进行通信   jsp servlet 
+2. 存储对象的作用域
+	page：页面本身
+	request：一次请求有效（请求转发）
+	session：一次会话有效（掌握：与服务建立连接开始，与服务器断开连接）
+	application：服务器级别有效（慎用） 服务器的存活周期；所有用户共享
+		（存储服务器配置信息：网站的访问次数）
+3. CRUD增删改查
+	1. 增加 request.setAttribute("自定义的key","你要保存的信息")
+		说明：1.key是一个字符串
+			2. 保存的信息是任意类型
+	2. 删除 request.removeAttribute("自定义的key");
+	3. 修改  request.setAttribute("自定义的key","你要更新的信息")
+	4. 查询 request.getAttribute("自定义的key")
+		说明：
+			1. 取出来的类型是object，需要进行类型转换，注意可能产生类型转换异常
+			2. 如果key不存在（还没有保存信息），取到的值是null（判断是否保存了值  if(x==null)），可能产生空指针异常
+4. session会话技术（cookie、session）
+	1. 作用域（有效范围）
+	2. 信息的读取
+	3. session的销毁（注销、退出）
+		1. 信息的覆盖
+			session.setAttribute("login",null);
+		2. 信息的删除
+			session.removeAttribute("login");
+		3. session的删除
+			session.invalidate();
+		4. session超时销毁（长时间没有操作）
+			session.setMaxInactiveInterval("秒");
+				应用：1. 保障用户安全（网上银行） 2. 减少资源浪费
+				0或者负数，则session永远不失效
+			可以再web.xml中对session的有效期进行配置
+5. 通过request来获取另外两个存储对象
+	1. 所属类型   User user = new User();
+		HttpSession
+		ServletContext
+		
+		HttpSession session = request.getSession();【掌握】
+		ServletContext application = request.getServletContext();
+		
+		扩展知识：HttpSession session = request.getSession(true);
+
+四、没有什么用的对象【了解】
+1. page 页面本身 this
+2. pageContext 页面上下文（班长）：通过这个对象找到其他对象
+	应用： EL表达式  
+3. config 配置
+	一般在servlet中使用ServletConfig来进行配置
+4. exception 异常对象
+	【知道】并不是所有的jsp都有9个内置对象，只有isErrorPage="true" 才有exception
+
+扩展：
+错误对象：exception
+servlet对象：page、config
+输入输出对象：request、response、out
+通信对象：session、application、pageContext
+
+
+JavaBean
+1. 是什么？
+	可重用的、被封装起来的Java类
+2. 分类
+	1. 值JavaBean：封装数据（不做任何其他操作 pojo）
+	2. 工具JavaBean：封装方法（处理数据）
+3. 映射类【考试】（将数据表变成Java类）  ORM 对象关系映射
+	1. 类名要和表名一致，首字母大写
+	2. 成员变量必须私有化，而且名字要和字段名一致，首字母不能大写
+	3. 提供对外的共有方法来访问成员--getter/setter
+	4. 必须提供无参构造方法（选择性提供有参构造方法、toString）
+	5. 类型是基础数据类型，则需要使用对应包装集类型
+		int ---- Integer
+		double-- Double
+		boolean-- Boolean
+扩展（看得懂）
+	在jsp中使用标签来操作javaBean
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		

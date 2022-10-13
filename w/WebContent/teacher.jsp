@@ -8,6 +8,11 @@
 </head>
 <body>
 这是老师的回复：允许你请假。
-但是你需要进行登记。<a href="<%=request.getContextPath() %>/regist.jsp">登记地址</a>
+但是你需要进行登记。<a href="${pageContext.request.contextPath}/regist.jsp">登记地址</a>
+
+<%
+	
+
+%>
 </body>
 </html>
