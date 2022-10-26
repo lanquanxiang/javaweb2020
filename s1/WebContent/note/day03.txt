@@ -26,7 +26,7 @@
 		重要方法：out.print()
 		【重点】注意输出顺序
 		response.getWriter()【掌握、考试】
-	3. request和response【重要、考试】
+	3. request和response【重要、考试】 HttpServletRequest
 		1. HTTP状态行 
 		2. HTTP头
 		3. HTTP实体内容（请求参数）

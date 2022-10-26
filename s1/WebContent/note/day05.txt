@@ -1,0 +1,44 @@
+一、Servlet
+1、Servlet是什么？
+	1、servlet是服务器端的程序，需要tomcat支持
+	2、java编写的（src），继承了HttpServlet
+2、Servlet特点
+	1、java有的特点，他都有
+	2、Java API、Servlet API（处理servlet、HTTP）
+	3、高效：线程
+3、生命周期【掌握】
+	1、constructor 创建对象（只执行一次，服务器启动/第一次访问servlet）
+	2、init初始化（只执行一次，服务器启动/第一次访问servlet）
+	3、service激活（反复执行，一直到服务器关闭或资源释放）
+	4、destory销毁（只执行一次，服务器关闭）
+4、Servlet创建和配置
+	1、注解
+		在类名的头上@WebServlet("/访问路径")
+		Tomcat6.0以上才有
+	2、XML配置
+5、 开发步骤
+
+
+二、Filter
+1、是什么？
+	本质上是Servlet（java），实现了Filter接口
+2、作用（多个过滤器可以组成过滤链）
+	1、请求到达目标资源之前，可以对请求进行处理（处理全站编码【重点】）
+	2、服务的响应到达客户端之前，可以对响应进行处理（禁止缓存）
+	3、过滤器可以决定是否放行request（权限拦截【重点】）
+3、如何创建和配置
+	1、过滤路径@WebFilter("/过滤路径")
+		过滤所有的文件   /*
+		过滤指定类型   *.jsp
+		过滤指定的文件夹下面的所有文件  /static/*
+		过滤指定文件   /success.jsp
+	2、全站编码过滤
+	
+	3、权限拦截
+		需求：success.jsp不能所有人都访问，必须是登记之后才能访问
+	
+	
+	
+	
+	
+	

@@ -35,7 +35,7 @@
 </script>
 </head>
 <body>
-<form action="" method="post" onsubmit="return check()">
+<form action="todo.jsp" method="post" >
 姓名:<input type="text" name="username"/><span></span><br/>
 密码:<input type="password" name="password"/><span></span><br/>
 年龄:<input type="text" name="age"/><span></span><br/>
