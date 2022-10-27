@@ -13,4 +13,12 @@
     <error-code>404</error-code>
     <location>/WEB-INF/404.jsp</location>
   </error-page>
+  <servlet>
+    <servlet-name>zhangsan</servlet-name>
+    <servlet-class>cn.pzhuweb.test.servlet.TodoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>zhangsan</servlet-name>
+    <url-pattern>/todo</url-pattern>
+  </servlet-mapping>
 </web-app>

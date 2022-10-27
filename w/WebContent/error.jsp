@@ -4,12 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>登记失败</title>
 </head>
 <body>
 <%=session.getAttribute("error") %>
 <%
-	response.setHeader("refresh", "2;url='regist.jsp'");
+	response.setHeader("refresh", "2;url='index.jsp'");
 %>
 </body>
 </html>
