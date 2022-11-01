@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,8 +9,8 @@
 </head>
 <body>
 <h1>你登记的信息是：</h1>
-姓名：${user.username}
+姓名：${sessionScope.user.username}
 年龄：${user.age}
-爱好：${user.hobby}
+爱好：<c:forEach items="${user.hobby}" var="x">${x}</c:forEach>
 </body>
 </html>

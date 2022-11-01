@@ -1,0 +1,36 @@
+EL 表达式语言
+1. 运算
+	·逻辑运算
+	·关系运算
+	·算术运算
+	·条件运算 not empty
+2. 读取域对象中的值
+3. 读取对象的属性 ${user.username}
+4. 读取隐身对象
+	
+	
+JSTL
+1. 导入jar包
+2. 需要在jsp页面声明
+
+	varStatus = x
+	x.index 索引值
+	x.count 计数器
+3. <c:if>
+4. <c:foreach>
+
+
+JDBC
+1. 包java.sql.*
+2. 标准 --> 接口 --> 实现（数据库驱动）
+
+
+
+
+
+
+
+
+
+
+

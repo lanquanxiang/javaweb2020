@@ -36,8 +36,15 @@ public class UserUtil {
 	 * @param list 旧的登记表（有可能为null）
 	 * @return 新的登记表
 	 */
-	public static ArrayList<SUser> add(SUser user,ArrayList<SUser> list){
-		return null;
+	public static ArrayList<SUser> add(SUser user,ArrayList<SUser> list){		
+		ArrayList<SUser> newlist = new ArrayList<>();
+		if (list==null) {
+			newlist.add(user);
+		}else{
+			newlist.addAll(list);
+			newlist.add(user);
+		}
+		return newlist;
 	}
 
 }
