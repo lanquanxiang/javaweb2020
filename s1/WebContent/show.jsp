@@ -19,7 +19,7 @@
 			<th>姓名</th>
 			<th>密码</th>
 		</tr>
-		<c:forEach items="${applicationScope.list }" var="user" varStatus="x">
+		<c:forEach items="${list }" var="user" varStatus="x">
 			<tr>
 				<td>${x.count }</td>
 				<td>${user.name}</td>
