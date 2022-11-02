@@ -1,0 +1,26 @@
+一、EL表达式（获取数据）
+	1. 读取域对象中的数据
+		域对象：page、request、session、application
+		${pageScope.username}  ${sessionScope.userinfo}
+		【说明】
+			1. 作用域可以省略
+			2. 从小到大依次查找
+	2. 获得其他内置对象
+		${pageContext.request}
+		将相对路径转换为相对服务器路径，保证路径准确性
+			服务器上下文路径${pageContext.request.contextPath}
+	3. 读取cookie（name:value）
+		${cookie.zhangsan.value}
+	4. EL进行运算
+		${empty list}   ${not empty list}
+	5. 读取对象的属性、数组的元素、集合中的元素
+		${user.username} ${x[0]}  ${list[0]}
+
+二、JSTL(JSP使用额外标签来实现更多的功能)
+	1. <c:if>
+	2. <c:choose>
+	3. <c:foreach>
+
+三、JDBC
+	
+			

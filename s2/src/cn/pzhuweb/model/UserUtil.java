@@ -33,6 +33,10 @@ public class UserUtil {
 	//3.将userinfo放入登记表中
 	public static ArrayList<UserInfo> add(UserInfo userInfo,ArrayList<UserInfo> oldlist){
 		ArrayList<UserInfo> newlist = new ArrayList<UserInfo>();
+		if (oldlist!=null) {
+			newlist.addAll(oldlist);
+		}
+		newlist.add(userInfo);
 		return newlist;
 	}
 
