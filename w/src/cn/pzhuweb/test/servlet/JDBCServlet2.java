@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import cn.pzhuweb.test.pojo.User;
+import cn.pzhuweb.test.util.JDBCUtil;
 
 /**
  * Servlet implementation class JDBCServlet
@@ -36,16 +37,13 @@ public class JDBCServlet2 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			
-			//1.注册驱动
-			Class.forName("com.mysql.jdbc.Driver");//Mysql5.6+ com.mysql.cj.jdbc.Driver
+			
 			//2.获得连接
-			String url="jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&charsetEncoding=UTF-8";
-			String user="root";
-			String password="1234";
-			Connection con = DriverManager.getConnection(url, user, password);
+			
+			Connection con = JDBCUtil.getConnection();
 			response.getWriter().print(con);
 			//3.编写SQL
-			String sql = "select * from user where name= ?";
+			String sql = "select * from user where name= ? ";
 			//4.创建命令
 			PreparedStatement sta = con.prepareStatement(sql);
 			//5.执行
@@ -60,9 +58,7 @@ public class JDBCServlet2 extends HttpServlet {
 				list.add(temp);
 			}
 			//7.释放资源
-			res.close();
-			sta.close();
-			con.close();
+			JDBCUtil.close(res, sta, con);
 			//8.保存必要的信息，进行跳转
 			request.getSession().setAttribute("list",list);
 			response.sendRedirect("show.jsp");
