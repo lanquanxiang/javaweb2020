@@ -7,14 +7,9 @@
 <title>用户登记</title>
 </head>
 <body>
-<form action="todo" method="post" >
-	姓名:<input type="text" name="username"/>	<br/>
-	年龄:<input type="text" name="age"/><br/>
-	爱好:<input type="checkbox" name="hobby" value="C">C
-	<input type="checkbox" name="hobby" value="C++">C++
-	<input type="checkbox" name="hobby" value="Java">Java
-	<input type="checkbox" name="hobby" value="Python">Python
-	<input type="submit" value="登记">
+<form action="${pageContext.request.contextPath}/jdbc2" method="post" >
+	姓名:<input type="text" name="username"/>
+	<input type="submit" value="查询">
 </form>
 </body>
 </html>

@@ -26,7 +26,12 @@ public class UserUtil {
 	
 	//3. 将userinfo放入登记表
 	public static ArrayList<UserInfo> update(UserInfo userInfo,ArrayList<UserInfo> oldlist){
-		return null;
+		ArrayList<UserInfo> newlist = new ArrayList<>();
+		if (oldlist!=null) {
+			newlist.addAll(oldlist);
+		}
+		newlist.add(userInfo);
+		return newlist;
 	}
 	
 

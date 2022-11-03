@@ -73,7 +73,7 @@ public class TodoServlet extends HttpServlet {
 		
 		
 		//8.成功
-		response.sendRedirect("success.jsp");
+		response.sendRedirect(request.getContextPath()+"/success.jsp");
 		
 		
 		

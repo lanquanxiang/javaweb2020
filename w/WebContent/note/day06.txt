@@ -1,0 +1,26 @@
+一、EL
+	1.作用
+		读取域对象中的数据
+		·page request session application
+	2.用法 ${}
+		1. 读取域对象数据
+			${sessionScope.error}
+			${applicationScope.list}   ${list}
+			前面的作用域可以省略,从小到大依次读取
+		2. 读取对象的属性
+			${对象.属性}
+		3. 读取集合、数组的元素
+			${集合或数组[下标]}
+		4. 可以进行运算（算术、关系、条件、逻辑）
+			${empty list}  ${not empty list} 
+		5. pageContext
+			${pageContext.request.contextPath}
+		6. 读取cookie的值  ${cookie.XXX.value}
+二、JSTL
+	1. 导入包
+	2. 声明库
+		<%@ taglib prefix="前缀" uri="http://java.sun.com/jsp/jstl/core" %>
+	3. <c:if> <c:choose>  <c:forEach>
+
+三、JDBC
+	
