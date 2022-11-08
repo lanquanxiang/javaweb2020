@@ -38,10 +38,9 @@ public class RootFilter implements Filter {
 		HttpServletRequest request2 = (HttpServletRequest) request;
 		HttpServletResponse response2 = (HttpServletResponse) response;
 		System.out.println("过滤器正在对你的行为进行检测……");
-		if (request2.getSession().getAttribute("flag")==null) {
-			request2.getSession().setAttribute("error", "不允许直接访问success!");
+		if (request2.getSession().getAttribute("user")==null) {
 			//9.定向到error
-			response2.sendRedirect("error.jsp");
+			response2.getWriter().print("<script>alert('请先登录!');window.location.href='login.jsp'</script>");
 		}else{
 			chain.doFilter(request, response);
 		}
