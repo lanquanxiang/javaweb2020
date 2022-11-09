@@ -14,20 +14,55 @@ public class UserDAOImp implements UserDAO{
 
 	@Override
 	public int insert(User t) {
-		// TODO Auto-generated method stub
+		Connection con = DBUtil.getConection();
+		String sql = "insert into user values(?,?)";
+		PreparedStatement psta = null;
+		try {
+			psta = con.prepareStatement(sql);
+			psta.setString(1, t.getName());
+			psta.setString(2, t.getPassword());
+			return psta.executeUpdate();			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBUtil.close(psta, con);
+		}		
 		return 0;
 	}
 	
 
 	@Override
 	public int delete(String k) {
-		// TODO Auto-generated method stub
+		Connection con = DBUtil.getConection();
+		String sql = "DELETE FROM user WHERE name = ?";
+		PreparedStatement psta = null;
+		try {
+			psta = con.prepareStatement(sql);
+			psta.setString(1, k);
+			return psta.executeUpdate();			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBUtil.close(psta, con);
+		}		
 		return 0;
 	}
 
 	@Override
 	public int update(User t) {
-		// TODO Auto-generated method stub
+		Connection con = DBUtil.getConection();
+		String sql = "UPDATE user SET password = ? WHERE name = ?";
+		PreparedStatement psta = null;
+		try {
+			psta = con.prepareStatement(sql);
+			psta.setString(2, t.getName());
+			psta.setString(1, t.getPassword());
+			return psta.executeUpdate();			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBUtil.close(psta, con);
+		}		
 		return 0;
 	}
 
