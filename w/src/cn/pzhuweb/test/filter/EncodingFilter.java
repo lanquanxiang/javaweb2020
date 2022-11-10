@@ -34,6 +34,7 @@ public class EncodingFilter implements Filter {
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;charset=utf-8");
 		System.out.println("编码过滤器正在处理你的编码……");
 		chain.doFilter(request, response);
 	}
