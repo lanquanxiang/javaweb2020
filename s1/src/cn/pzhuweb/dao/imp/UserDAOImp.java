@@ -8,13 +8,14 @@ import java.util.List;
 
 import cn.pzhuweb.dao.UserDAO;
 import cn.pzhuweb.pojo.User;
+import cn.pzhuweb.util.C3P0Util;
 import cn.pzhuweb.util.DBUtil;
 
 public class UserDAOImp implements UserDAO{
 
 	@Override
 	public int insert(User t) {
-		Connection con = DBUtil.getConection();
+		Connection con = C3P0Util.getConection();
 		String sql = "insert into user values(?,?)";
 		PreparedStatement psta = null;
 		try {

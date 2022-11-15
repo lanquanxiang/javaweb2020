@@ -4,12 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>登录</title>
+<title>注册</title>
 </head>
 <body style="text-align: center;">
 <jsp:include page="head.jsp"/>
-	<h1>用户登录</h1>
-	<form action="login" method="post">
+	<h1>用户注册</h1>
+	<form action="regist" method="post">
 		<table style="margin: auto;">
 			<tr>
 				<td>姓名</td>
@@ -22,7 +22,7 @@
 			<tr>
 				<td></td>
 				<td>
-					<input type="submit" value="登录"/>
+					<input type="submit" value="注册"/>
 				</td>
 			</tr>
 		
