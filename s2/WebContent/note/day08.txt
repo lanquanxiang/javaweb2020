@@ -33,3 +33,17 @@
 			DataSource ds = 
 		3. 提供公共的获取连接池的方法
 		4. 提供公共的获取连接的方法
+五、CRUD优化
+	1. DBUtil
+		1. 返回值 int 更新
+		2. 返回值 object  查询（1条） BeanHander
+		3. 返回值List<object> 查询（多条） BeanListHander
+	2. Spring的优化 jdbcTemplate
+		
+		
+		
+		
+		
+		
+		
+		

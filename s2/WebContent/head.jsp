@@ -23,12 +23,13 @@
 		<c:if test="${not empty user}">
 			<li><a href="#">修改密码</a></li>
 			<li><a href="#">销毁账户</a></li>
+			<li><a href="showcar">显示汽车信息</a></li>
 		</c:if>
 	</ul>
 	<ul style="float: right;">
 		<c:if test="${empty user}">
-			<li><a href="#">登录</a></li>
-			<li><a href="#">注册</a></li>
+			<li><a href="login.jsp">登录</a></li>
+			<li><a href="regist.jsp">注册</a></li>
 		</c:if>
 		<c:if test="${not empty user}">
 			<li>用户：${user.name}</li>
