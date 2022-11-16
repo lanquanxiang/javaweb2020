@@ -1,0 +1,35 @@
+一、数据库连接池
+	1. 为什么？
+		·原生JDBC创建和销毁连接的时候需要时间和IO
+		·影响数据库的效率
+		·可能是数据库崩溃
+	2. 连接池原本原理
+		·启动的时候初始化一批连接（集合list或map）
+		·需要连接的时候，不需要创建，直接从连接池中获取
+		·使用完毕之后，不需要销毁，归还到连接池中
+二、实现连接池
+	1. 初始化连接池 victor（考虑线程安全）
+	2. 需要两个集合（可用的连接、正在使用的连接）
+	3. 考虑线程安全（threadlocal）
+三、数据源
+	1. javax.sql.DataSource 接口（标准、需要具体的实现类）DataSource ds = null;
+	2. 从连接池中获得连接的方法 ds.getConnection()   con.close() 归还连接
+四、常用的数据库连接池
+	1. DBCP
+		1. 导入包
+		2. 初始化连接池
+			DataSource ds = BasicDataSourceFactory.createDataSource(prop);//prop表示配置文件
+		3. 提供公共的获取连接池的方法
+		4. 提供公共的获取连接的方法
+	2. C3P0
+		1. 导入包
+		2. 初始化连接池
+			DataSource ds = new ComboPooledDataSource();
+		3. 提供公共的获取连接池的方法
+		4. 提供公共的获取连接的方法
+	3. Druid 阿里巴巴
+		1. 导入包
+		2. 初始化连接池
+			DataSource ds = 
+		3. 提供公共的获取连接池的方法
+		4. 提供公共的获取连接的方法

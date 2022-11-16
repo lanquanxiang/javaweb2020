@@ -7,14 +7,28 @@ import java.util.List;
 
 import cn.pzhuweb.dao.UserDAO;
 import cn.pzhuweb.pojo.User;
+import cn.pzhuweb.util.C3P0Util;
 import cn.pzhuweb.util.JDBCUtil;
 
 public class UserDAOImp implements UserDAO{
 
 	@Override
 	public int insert(User t) {
-		// TODO Auto-generated method stub
-		return 0;
+		Connection con = C3P0Util.getConnection();
+		PreparedStatement psta = null;		
+		
+		String sql="insert into user values(?,?)";
+		try {
+			psta = con.prepareStatement(sql);
+			psta.setString(1, t.getName());
+			psta.setString(2, t.getPassword());			
+			return psta.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return 0;
+		}finally {
+			JDBCUtil.close(psta, con);
+		}
 	}
 
 	@Override

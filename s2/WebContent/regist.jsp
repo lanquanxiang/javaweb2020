@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>登录</title>
+<title>注册</title>
 <style type="text/css">
 	body{
 		text-align: center;
@@ -17,8 +17,8 @@
 </head>
 <jsp:include page="head.jsp"/>
 <body>
-<h1>用户登录</h1>
-<form action="login" method="post">
+<h1>用户注册</h1>
+<form action="regist" method="post">
 	<table>
 		<tr>
 			<td>姓名</td>
@@ -30,7 +30,7 @@
 		</tr>
 		<tr>
 			<td></td>
-			<td><input type="submit" value="登录"/></td>
+			<td><input type="submit" value="注册"/></td>
 		</tr>
 	</table>
 </form>
