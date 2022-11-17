@@ -1,0 +1,40 @@
+一、优化数据库连接
+	存在问题：原生JDBC在获得连接和销毁连接的时候需要消耗时间和IO资源（频繁）
+		时间--> 效率低
+		IO资源-->大量用户访问会造成数据库崩溃
+	解决办法：数据库连接池
+	基本原理：
+		1. 连接池在程序启动的时候就初始化（很多个连接），而且只需要初始化一次 --> static{}
+		2. 参数：初始化的数量、最大连接数、最大空闲时间、等待时间……
+		3. List、Map、Vector 
+		4. List（可以使用的连接）List（正在被使用的连接）
+		5. 线程安全（1. 使用线程安全的数据结构 2.使用锁 3. threadlocal）
+二、数据库连接池
+	1. 使用
+	  javax.sql.DataSource 接口（标准、需要实现）
+	  标准： 
+	  	声明 DataSource ds = null;
+	  	初始化 ds = 实现类来进行初始化（？？？）
+	  	获得连接 ds.getConnection() 从连接池中得到连接
+	  	归还连接  con.close() 
+	2. DBCP：Apache提供
+		1. 导入包（现实）
+		2. 初始化
+			private DataSource ds = BasicDataSourceFactory.createDataSource(prop);
+			//工厂设计模式（23种） JavaEE（MVC、DAO）
+		3. 需要提供获得连接池的公共方法
+		4. 需要提供从连接池获得连接的公共方法
+	3. c3p0
+		1. 导入包（现实）
+		2. 初始化
+			private static DataSource ds = new ComboPooledDataSource(); 
+		3. 需要提供获得连接池的公共方法
+		4. 需要提供从连接池获得连接的公共方法
+	4. Druid(阿里巴巴)
+		1. 导入包（现实）
+		2. 初始化
+			private static DataSource ds = new ComboPooledDataSource(); 
+		3. 需要提供获得连接池的公共方法
+		4. 需要提供从连接池获得连接的公共方法
+
+三、优化数据库的操作

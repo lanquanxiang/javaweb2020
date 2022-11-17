@@ -13,7 +13,7 @@
 	<h2>还没有任何信息!</h2>
 </c:if>
 <c:if test="${not empty list}">
-	<table style="margin: auto;">
+	<table>
 		<tr>
 			<th>序号</th>
 			<th>id</th>

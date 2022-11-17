@@ -33,7 +33,7 @@
 		</c:if>
 		<c:if test="${not empty user}">
 			<li>用户：${user.name}</li>
-			<li><a href="#">退出</a></li>
+			<li><a href="logout">退出</a></li>
 		</c:if>
 	</ul>
 </div>

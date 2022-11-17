@@ -29,8 +29,20 @@ public class UserServiceImp implements UserService{
 
 	@Override
 	public Message regist(User user) {
-		// TODO Auto-generated method stub
-		return null;
+		if (user==null) {
+			return new Message(false, "数据不合法!");
+		}
+		if ("".equals(user.getName()) || "".equals(user.getPassword())) {
+			return new Message(false, "用户名或者密码为空!");
+		}
+		User dbUser = dao.selectById(user.getName());
+		if (dbUser!=null) {
+			return new Message(false, "此用户已经存在!");
+		}
+		if (dao.insert(user)==0) {
+			return new Message(false, "注册失败!");
+		}
+		return new Message(true, "注册成功，请登录!");
 	}
 
 	@Override
