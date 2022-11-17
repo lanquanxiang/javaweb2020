@@ -23,6 +23,7 @@
 		<c:if test="${not empty user}">
 			<li><a href="#">修改密码</a></li>
 			<li><a href="#">销毁账户</a></li>
+			<li><a href="showcar">显示所有汽车信息</a></li>
 		</c:if>
 	</ul>
 	
