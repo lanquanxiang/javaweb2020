@@ -1,0 +1,21 @@
+一、检测用户名是否被占用
+	1. 什么时候检测用户名？ zhangsan
+		用户名的输入控件失去焦点触发检测
+	2. 如何实现不刷新页面进行用户名检测--Ajax
+		使用基于jQuery的Ajax
+		
+		setInterval(function(){
+			$.post(
+					"regist",
+					{
+						"username":new Date().getTime(),
+						"password":new Date().getTime()
+					},
+					function data() {}
+				);
+		
+		},2000)
+	
+步骤：
+	1. 在输入控件中附加onchange事件
+	2. 在页面中添加容器span，放检测结果

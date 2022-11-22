@@ -13,4 +13,6 @@ public interface UserService {
 	public Message changePassword(User user);
 	//删除账户
 	public Message removeCount(String name);
+	//判断用户名是否被使用
+	public boolean isUsed(String username);
 }

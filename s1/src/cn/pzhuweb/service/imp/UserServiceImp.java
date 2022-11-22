@@ -59,4 +59,12 @@ public class UserServiceImp implements UserService{
 		return null;
 	}
 
+	@Override
+	public boolean isUsed(String username) {
+		if(dao.selectById(username)==null){
+			return false;
+		}
+		return true;
+	}
+
 }
