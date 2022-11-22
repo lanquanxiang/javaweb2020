@@ -33,6 +33,14 @@ public class RegistServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String name = request.getParameter("username");
 		String password = request.getParameter("password");
+		
+		String captcha = request.getParameter("captcha");
+		String code = (String) request.getSession().getAttribute("code");
+		if (captcha==null || !captcha.equalsIgnoreCase(code)) {
+			response.getWriter().print("<script>alert('验证码输入错误!');window.location.href='regist.jsp'</script>");
+			return ;
+		}
+		
 		User user = new User(name, password);
 		UserService us = new UserServiceImp();
 		Message message = us.regist(user);

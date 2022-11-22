@@ -28,6 +28,9 @@
 	function  newImage() {
 		$("img").attr("src","showimage?time="+new Date().getTime());
 	}
+	function  newCNImage() {
+		$("img").attr("src","showimage?type=cn&time="+new Date().getTime());
+	}
 </script>
 </head>
 <body style="text-align: center;">
@@ -47,7 +50,7 @@
 				<td>验证码</td>
 				<td><input type="text" name="captcha"/>
 					<span style="position: absolute;">
-						<img alt="验证码加载失败" src="showimage" onclick="newImage()"/><a href="">中文</a>
+						<img alt="验证码加载失败" src="showimage" onclick="newImage()"/><a href="#" onclick="newCNImage()">中文</a>
 					</span>
 				</td>
 			</tr>

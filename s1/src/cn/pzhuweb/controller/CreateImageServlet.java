@@ -32,7 +32,7 @@ public class CreateImageServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("image/jpeg");
-		ImageUtil util = new ImageUtil(null);
+		ImageUtil util = new ImageUtil(request.getParameter("type"));
 		BufferedImage image = util.getImage();
 		String code = util.getCode();
 		request.getSession().setAttribute("code", code);//将正确的验证码保存下来，提供给注册servlet
