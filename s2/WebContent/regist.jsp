@@ -19,7 +19,7 @@
 	function check() {
 		var username = $(":text").eq(0).val();
 		if(username==""){
-			$("span").html("用户名不能为空");
+			$("#note").html("用户名不能为空");
 			return;
 		}
 		$.get(
@@ -29,7 +29,7 @@
 					"time":new Date().getTime()
 				},
 				function (data) {
-					$("span").html(data);
+					$("#note").html(data);
 				}
 		);
 	}
@@ -48,7 +48,7 @@
 	<table>
 		<tr>
 			<td>姓名</td>
-			<td><input type="text" name="username" onchange="check()"/><span style="position: absolute;"></span></td>
+			<td><input type="text" name="username" onchange="check()"/><span id="note" style="position: absolute;"></span></td>
 		</tr>
 		<tr>
 			<td>密码</td>

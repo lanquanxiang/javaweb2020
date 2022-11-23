@@ -31,6 +31,18 @@ public class RegistServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String captcha = request.getParameter("captcha");
+		String codes = (String) request.getSession().getAttribute("codes");
+		if (captcha==null || "".equals(codes)|| "".equals(captcha) || codes==null) {
+			response.getWriter().print("<script>alert('验证码为空！');window.location.href='regist.jsp';</script>");
+			return;
+		}
+		if (!codes.equalsIgnoreCase(captcha)) {
+			response.getWriter().print("<script>alert('验证码输入错误！');window.location.href='regist.jsp';</script>");
+			return;
+		}		
+		
 		String  name = request.getParameter("username");
 		String password = request.getParameter("password");
 		User user = new User(name, password);
