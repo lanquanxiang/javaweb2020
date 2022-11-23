@@ -11,6 +11,7 @@ import cn.pzhuweb.pojo.Message;
 import cn.pzhuweb.pojo.User;
 import cn.pzhuweb.service.UserService;
 import cn.pzhuweb.service.imp.UserServiceImp;
+import cn.pzhuweb.util.Conver2MD5;
 
 /**
  * Servlet implementation class RegistServlet
@@ -45,7 +46,11 @@ public class RegistServlet extends HttpServlet {
 		
 		String  name = request.getParameter("username");
 		String password = request.getParameter("password");
-		User user = new User(name, password);
+		
+		String maskpassword = Conver2MD5.getSHA256("javaweb"+name+password);
+		
+		
+		User user = new User(name, maskpassword);
 		UserService us = new UserServiceImp();
 		Message message = us.regist(user);
 		if (message.isSuccess()) {

@@ -5,5 +5,31 @@
 		基于jQuery的Ajax
 			$.get/post(url,json,callback);
 2、防止暴力行为（不允许进行批量注册等暴力行为）--验证码（字符验证码:干扰）
+3、加密
+	MD5（信息摘要算法第五版）
+		1. 速度快，便于计算
+		2. 固定长度（32个16进制）
+		3. 抗碰撞性
+		4. 抗修改性
+	作用：1. 加密 2. 信息的一致性校验
+4、保存用户名和密码
+	位置：cookie技术
+	回话技术：1. 域对象session  2. cookie
+	
+	CRUD
+		增加：
+			Cookie cookie对象 = new Cookie(name,value);
+			response.addCookie(cookie对象);
+			说明：name唯一标识  cookie不能保存中文
+		删除：
+			设置cookie的有效期 / 使用新的cookie来覆盖原来的值
+			cookie.setMaxAg(int seconds)//设置为0
+		修改：
+			response.addCookie(cookie对象); //唯一标识来对原来的数据进行覆盖
+		查询：
+			Cookie[] cookies = request.getCookies()
+			EL表达式
+				${cookie.XXX.value}
+			
 	
 	
