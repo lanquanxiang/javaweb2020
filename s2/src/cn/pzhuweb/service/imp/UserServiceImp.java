@@ -59,4 +59,12 @@ public class UserServiceImp implements UserService{
 		return null;
 	}
 
+	@Override
+	public boolean isRegist(String name) {
+		if(dao.selectById(name)!=null){
+			return true;
+		}
+		return false;
+	}
+
 }

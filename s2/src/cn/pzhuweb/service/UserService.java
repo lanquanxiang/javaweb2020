@@ -12,5 +12,7 @@ public interface UserService {
 	public Message changePassword(User user);
 	//4.销户
 	public Message removeAccount(String name);
+	//5.检测用户名是否被占用
+	public boolean isRegist(String name);
 
 }

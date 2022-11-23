@@ -14,6 +14,32 @@
 		margin: auto;
 	}
 </style>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+	function check() {
+		var username = $(":text").eq(0).val();
+		if(username==""){
+			$("span").html("用户名不能为空");
+			return;
+		}
+		$.get(
+				"checkusername",
+				{
+					"username":username,
+					"time":new Date().getTime()
+				},
+				function (data) {
+					$("span").html(data);
+				}
+		);
+	}
+	function newImage() {
+		$("img").attr("src","getImage?time="+new Date().getTime());
+	}
+	function newCNImage() {
+		$("img").attr("src","getImage?type=cn&time="+new Date().getTime());
+	}
+</script>
 </head>
 <jsp:include page="head.jsp"/>
 <body>
@@ -22,11 +48,18 @@
 	<table>
 		<tr>
 			<td>姓名</td>
-			<td><input type="text" name="username"/></td>
+			<td><input type="text" name="username" onchange="check()"/><span style="position: absolute;"></span></td>
 		</tr>
 		<tr>
 			<td>密码</td>
 			<td><input type="password" name="password"/></td>
+		</tr>
+		<tr>
+			<td>验证码</td>
+			<td><input type="text" name="captcha"/>
+			<span style="position: absolute;">
+				<img alt="验证码加载失败" src="getImage" onclick="newImage()"><a href="#" onclick="newCNImage()">中文验证码</a>
+			</span></td>
 		</tr>
 		<tr>
 			<td></td>
