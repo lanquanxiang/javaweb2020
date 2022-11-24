@@ -1,0 +1,17 @@
+一、输入完用户名之后，立即反馈是否被注册。
+	1. 在不刷新页面更新页面---Ajax
+		基于jQuery的Ajax
+		$.get/post{
+			"url",
+			{json},
+			function(data){}		
+		}
+		· get请求会缓存请求地址和数据，post不会缓存数据
+		
+	2. 出发什么JS事件？
+		onkeypress oninput
+		onblur失去焦点 onchange值被改变并且失去焦点
+二、防止暴力行为进行注册或者登录
+	验证码（captcha）
+	1. 图片的来源？
+		src=控制器

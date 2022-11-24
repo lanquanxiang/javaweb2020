@@ -12,4 +12,6 @@ public interface UserService {
 	public Message changePassword(User newuser);
 	//4.销户
 	public boolean removeAccount(String name);
+	//5. 检测用户名是否已经被注册
+	public boolean isRegist(String name);
 }
