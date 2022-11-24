@@ -13,15 +13,19 @@
 		<table style="margin: auto;">
 			<tr>
 				<td>姓名</td>
-				<td><input type="text" name="username"/></td>
+				<td><input type="text" name="username" value="${cookie.username.value }"/></td>
 			</tr>
 			<tr>
 				<td>密码</td>
-				<td><input type="password" name="password"/></td>
+				<td><input type="password" name="password" value="${cookie.password.value }"/></td>
 			</tr>
 			<tr>
 				<td></td>
-				<td><input type="button" value="注册"/><input type="submit" value="登录"/></td>
+				<td><input type="checkbox" name="isSave" />保存密码</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="submit" value="登录"/></td>
 			</tr>
 		</table>	
 	</form>
