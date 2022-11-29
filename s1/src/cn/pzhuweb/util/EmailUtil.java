@@ -12,7 +12,7 @@ public class EmailUtil {
 		SimpleEmail simpleEmail = new SimpleEmail();
 		simpleEmail.setHostName("smtp.qq.com");
 		simpleEmail.setSslSmtpPort("465");
-		simpleEmail.setAuthentication("pzhlan@qq.com", "wauwaprzeefybhhe");
+		simpleEmail.setAuthentication("pzhlan@qq.com", "授权码");
 		try {
 			simpleEmail.addTo(email);
 			simpleEmail.setFrom("pzhlan@qq.com", "Admin");
