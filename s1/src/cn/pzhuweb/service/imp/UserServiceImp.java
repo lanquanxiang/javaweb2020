@@ -5,6 +5,7 @@ import cn.pzhuweb.dao.imp.UserDAOImp;
 import cn.pzhuweb.pojo.Message;
 import cn.pzhuweb.pojo.User;
 import cn.pzhuweb.service.UserService;
+import cn.pzhuweb.util.EmailUtil;
 
 public class UserServiceImp implements UserService{
 	
@@ -65,6 +66,18 @@ public class UserServiceImp implements UserService{
 			return false;
 		}
 		return true;
+	}
+
+	@Override
+	public Message sendemail(String username, String email) {
+		if (username==null || email==null || "".equals(username) || "".equals(email)) {
+			return new Message(false, "信息不完整!");
+		}
+		if (dao.selectById(username)==null) {//项目开发中还需要验证邮箱是否是这个用户的
+			return new Message(false, "账号不存在!");
+		}
+		
+		return EmailUtil.sendEmail(email);
 	}
 
 }

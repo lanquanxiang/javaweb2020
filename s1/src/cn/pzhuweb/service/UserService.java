@@ -15,4 +15,6 @@ public interface UserService {
 	public Message removeCount(String name);
 	//判断用户名是否被使用
 	public boolean isUsed(String username);
+	//发送邮件
+	public Message sendemail(String username,String email);
 }

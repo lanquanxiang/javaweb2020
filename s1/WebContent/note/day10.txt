@@ -1,0 +1,44 @@
+1、数据库中不能明文保存密码
+	·数据库中的密码是什么时候写进去的？
+	（注册、修改密码） XXX
+	·登录？ 111 --> XXX
+		111
+	·相同的加密规则（自定义：特殊）
+		特殊：多次多层、混入特殊字符、截取其中一段
+	扩展：密码长度加密之后固定
+2、保存用户名和密码
+	·保存在什么位置的？
+		浏览器中
+	·技术
+		cookie
+	session与cookie
+	session：保存数据，域对象，服务器上，有效范围：建立连接，断开连接或者手动销毁
+	cookie：保存数据，客户机上，有效范围：生存时长或手动清除
+	扩展：session依赖于cookie
+	
+	cookie增删改查
+	增加：
+		Cookie xxx = new Cookie("name","value"); 唯一的构造方法，name是唯一的；不能保存中文
+		response.addCookie(xxx); 
+	删除：
+		xxx.setMaxAge(0);
+	修改：
+		Cookie xxx = new Cookie("name","newvalue"); 
+		response.addCookie(xxx); 
+	查询：
+		Cookie[] xxxs=request.getCookies()
+		
+		EL
+		${cookie.name.value}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
