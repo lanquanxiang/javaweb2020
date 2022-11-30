@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,6 +21,7 @@
 			<th>name</th>
 			<th>type</th>
 			<th>price</th>
+			<th>操作</th>
 		</tr>
 		<c:forEach items="${list }" var="x" varStatus="i">
 			<tr>
@@ -27,9 +29,19 @@
 				<td>${x.car_id}</td>
 				<td>${x.car_name}</td>	
 				<td>${x.car_type}</td>
-				<td>${x.car_price}</td>					
+				<td>
+					<fmt:formatNumber value="${x.car_price}" pattern=".00" type="number"></fmt:formatNumber>
+				</td>	
+				<td>
+					<a href="edit?car_id=${x.car_id}&car_name=${x.car_name}"><button>编辑</button></a>
+					<button>删除</button>
+				</td>					
 			</tr>
 		</c:forEach>
+		
+		<tr>
+			<td colspan="6">${bar}</td>
+		</tr>
 	</table>
 </c:if>
 <br/>
