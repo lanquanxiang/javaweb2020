@@ -5,6 +5,7 @@ import cn.pzhuweb.dao.imp.UserDAOImp;
 import cn.pzhuweb.pojo.Message;
 import cn.pzhuweb.pojo.User;
 import cn.pzhuweb.service.UserService;
+import cn.pzhuweb.util.EmailUtil;
 
 public class UserServiceImp implements UserService{
 	
@@ -65,6 +66,24 @@ public class UserServiceImp implements UserService{
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public Message sendEmail(String name, String email) {
+		/*
+		 * 1. 检验数据的完整性
+		 * 2. 数据的合法性（用户名和邮箱是否与注册的一致）--用户名是否存在
+		 * 3. 发送验证码（失败：message保存失败的信息；成功：message保存验证码）
+		 */
+		if (name==null || email==null || "".equals(name) || "".equals(email)) {
+			return new Message(false,"信息不完整!");
+		}
+		User dbUser = dao.selectById(name);
+		if (dbUser==null) {/*只验证了用户名，以后还需要验证邮箱是否一致 || !email.equals(dbUser.getEmail())   */
+			return new Message(false,"用户不存在!");
+		}
+		
+		return EmailUtil.sendEmail(email);
 	}
 
 }

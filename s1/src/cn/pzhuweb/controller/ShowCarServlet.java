@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import cn.pzhuweb.pojo.Car;
 import cn.pzhuweb.service.CarService;
 import cn.pzhuweb.service.imp.CarServiceImp;
+import cn.pzhuweb.util.PageUtil;
 
 /**
  * Servlet implementation class ShowCarServlet
@@ -31,10 +32,30 @@ public class ShowCarServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@SuppressWarnings("unchecked")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		CarService cs = new CarServiceImp();
-		List<Car> list = cs.showAll();
-		request.getSession().setAttribute("list", list);
+		List<Car> list = (List<Car>) request.getSession().getAttribute("AllList");
+		if (list==null) {
+			CarService cs = new CarServiceImp();
+			list = cs.showAll();
+			request.getSession().setAttribute("AllList", list);
+		}
+		
+		String snum = request.getParameter("num");
+		String spage = request.getParameter("page");
+		int num = 10,page=1;
+		try {
+			num = Integer.parseInt(snum);
+		} catch (Exception e) {
+			num = 10;			
+		}	
+		try {
+			page = Integer.parseInt(spage);
+		} catch (Exception e) {
+			page=1;
+		}
+		List<Car> pagelist = PageUtil.splitList(list, page, num);//分割之后的list
+		request.getSession().setAttribute("list", pagelist);
 		response.sendRedirect("show.jsp");
 	}
 

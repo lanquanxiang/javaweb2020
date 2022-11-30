@@ -30,11 +30,14 @@
 		</tr>
 		<tr>
 			<td></td>
-			<td><input type="checkbox" name="isSave" value="yes" ${empty cookie.save.value?'':'checked'}/>保存密码</td>
+			<td><input type="checkbox" name="isSave" value="yes" ${empty cookie.save.value?'':'checked'}/>保存密码
+				<a href="email.jsp">邮箱登录</a>
+			</td>
 		</tr>
 		<tr>
 			<td></td>
-			<td><input type="submit" value="登录"/></td>
+			<td><input type="submit" value="登录"/>
+			</td>
 		</tr>
 	</table>
 </form>

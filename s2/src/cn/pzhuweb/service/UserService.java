@@ -14,5 +14,7 @@ public interface UserService {
 	public Message removeAccount(String name);
 	//5.检测用户名是否被占用
 	public boolean isRegist(String name);
+	//6.检测用户名和邮箱，并发送邮件
+	public Message sendEmail(String name,String email);
 
 }

@@ -32,8 +32,11 @@
 		${cookie.name.value}
 		
 		
-		
-		
+3、分页显示   page num =10
+	物理分页：limit
+		SELECT * FROM car LIMIT (page-1)*num,num    1---0  2----10  3 ---20		
+	逻辑分页
+		自行分割页面
 		
 		
 		
