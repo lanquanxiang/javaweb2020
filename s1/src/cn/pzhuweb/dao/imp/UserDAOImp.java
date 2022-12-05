@@ -16,10 +16,9 @@ public class UserDAOImp implements UserDAO{
 	@Override
 	public int insert(User t) {
 		Connection con = C3P0Util.getConection();
-		String sql = "insert into user values(?,?)";
 		PreparedStatement psta = null;
 		try {
-			psta = con.prepareStatement(sql);
+			psta = con.prepareStatement("insert into user values(?,?)");
 			psta.setString(1, t.getName());
 			psta.setString(2, t.getPassword());
 			return psta.executeUpdate();			

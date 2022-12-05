@@ -21,7 +21,9 @@
 			</tr>
 			<tr>
 				<td></td>
-				<td><input type="checkbox" name="isSave" />保存密码</td>
+				<td><input type="checkbox" name="isSave" />保存密码
+					<a href="email.jsp">邮箱登录</a>
+				</td>
 			</tr>
 			<tr>
 				<td></td>
