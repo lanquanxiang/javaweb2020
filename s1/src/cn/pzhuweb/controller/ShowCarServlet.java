@@ -56,6 +56,15 @@ public class ShowCarServlet extends HttpServlet {
 		}
 		List<Car> pagelist = PageUtil.splitList(list, page, num);//分割之后的list
 		request.getSession().setAttribute("list", pagelist);
+		
+		//还需要一个导航栏
+		String path= request.getContextPath()+"/showcar";
+		StringBuffer bar = PageUtil.getBar(list, page, num, path);
+		request.getSession().setAttribute("bar", bar);
+		
+		
+		
+		
 		response.sendRedirect("show.jsp");
 	}
 

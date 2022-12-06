@@ -27,4 +27,37 @@ public class PageUtil {
 		}
 		return list;
 	}
+
+	public static StringBuffer getBar(List<Car> list, int page, int num, String path) {
+		if (list==null || list.size()==0) {
+			return null;
+		}
+		if (page<1) {
+			page=1;
+		}
+		int pages= (list.size()-1)/num+1;
+		if (page>pages) {
+			page=pages;
+		}
+		if (num<1) {
+			num=10;
+		}
+		
+		StringBuffer bar = new StringBuffer();
+		if (page>1) {
+			bar.append("<a href='"+path+"?page="+(page-1)+"&num="+num+"'>←</a>  ");
+		}
+		for (int i = 1; i <=pages; i++) {
+			if (page==i) {
+				bar.append(" ["+i+"] ");
+			}else{
+				bar.append("<a href='"+path+"?page="+i+"&num="+num+"'>"+i+"</a>  ");
+			}
+		}
+		if (page<pages) {
+			bar.append("<a href='"+path+"?page="+(page+1)+"&num="+num+"'>→</a>  ");
+		}
+		
+		return bar;
+	}
 }

@@ -6,6 +6,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>汽车信息</title>
+<style type="text/css">
+td a{
+	text-decoration: none;
+}
+</style>
 </head>
 <body style="text-align: center;">
 <jsp:include page="head.jsp"/>
@@ -21,6 +26,7 @@
 			<th>名字</th>
 			<th>类型</th>
 			<th>价格</th>
+			<th>操作</th>
 		</tr>
 		<c:forEach items="${list }" var="car" varStatus="x">
 			<tr>
@@ -29,8 +35,18 @@
 				<td>${car.car_name}</td>				
 				<td>${car.car_type}</td>				
 				<td>${car.car_price}</td>
+				<td>
+					<a href="edit.jsp?index=${x.index}"><button>编辑</button></a>
+					<a href="delete?id=${car.car_id}"><button>删除</button></a>
+				</td>
 			</tr>		
 		</c:forEach>	
+		
+		<tr>
+			<td colspan="6">${bar}</td>
+		</tr>
+		
+		
 	</table>
 </c:if>
 </body>
