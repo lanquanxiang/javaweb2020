@@ -61,7 +61,7 @@ public class ShowCarServlet extends HttpServlet {
 		String path= request.getContextPath()+"/showcar";
 		StringBuffer bar = PageUtil.getBar(list, page, num, path);
 		request.getSession().setAttribute("bar", bar);
-		
+		request.getSession().setAttribute("num", num);
 		
 		
 		

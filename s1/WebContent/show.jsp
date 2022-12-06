@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,7 +35,9 @@ td a{
 				<td>${car.car_id}</td>
 				<td>${car.car_name}</td>				
 				<td>${car.car_type}</td>				
-				<td>${car.car_price}</td>
+				<td>
+					<fmt:formatNumber type="number" value="${car.car_price}" pattern=".00"></fmt:formatNumber>
+				</td>
 				<td>
 					<a href="edit.jsp?index=${x.index}"><button>编辑</button></a>
 					<a href="delete?id=${car.car_id}"><button>删除</button></a>
@@ -43,7 +46,15 @@ td a{
 		</c:forEach>	
 		
 		<tr>
-			<td colspan="6">${bar}</td>
+			<td colspan="6">${bar}</td>			
+		</tr>
+		<tr>
+			<td colspan="6">
+				<form action="showcar">
+					每页显示<input type="text" name="num" value="${num}"/>条
+					<input type="submit" value="确定"/> 
+				</form>
+			</td>			
 		</tr>
 		
 		
