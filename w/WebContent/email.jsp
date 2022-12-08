@@ -5,6 +5,24 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>邮箱登录</title>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+	function sendEmail() {
+		$("span").html("");//清空提示
+		//检验用户名、邮箱是否为空，检验邮箱格式是否正确//
+		$.post(
+			"sendEmail",
+			{
+				"username":$("input[name='username']").val(),
+				"email":$("input[name='email']").val()
+			},
+			function(data) {
+				$("span").html(data);	
+			}
+		)
+	}
+
+</script>
 </head>
 <jsp:include page="head.jsp"/>
 <body style="text-align: center;">
@@ -24,7 +42,7 @@
 			<tr>
 				<td>验证码</td>
 				<td><input type="text" name="checkcode" />
-					<input type="button" value="发送验证码" style="position: absolute;">
+					<input type="button" onclick="sendEmail()" value="发送验证码" style="position: absolute;">
 				</td>
 			</tr>
 			<tr>

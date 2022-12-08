@@ -5,6 +5,7 @@ import cn.pzhuweb.test.dao.imp.UserDAOImp;
 import cn.pzhuweb.test.pojo.Message;
 import cn.pzhuweb.test.pojo.User;
 import cn.pzhuweb.test.service.UserService;
+import cn.pzhuweb.test.util.EmailUtil;
 
 public class UserServiceImp implements UserService{
 	private UserDAO dao = new UserDAOImp();
@@ -63,6 +64,21 @@ public class UserServiceImp implements UserService{
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public Message sendEmail(String username, String email) {
+		if (username==null||email==null) {
+			return new Message(false, "数据不合法!");
+		}
+		if ("".equals(username)||"".equals(email)) { // ||邮箱的格式不正确（正则表达式）
+			return new Message(false,"用户名或邮箱不能为空!");
+		}
+		User dbuser = dao.selectById(username);
+		if (dbuser==null) { // || !dbuser.getEmail().equals(email) 需要判断用户输入的邮箱是否正确
+			return new Message(false, "用户名不存在或邮箱不正确!");
+		}
+		return EmailUtil.sendEmail(email);
 	}
 
 }
