@@ -14,7 +14,7 @@ public class EmailUtil {
 		simpleEmail.setHostName("smtp.qq.com");
 		simpleEmail.setSmtpPort(465);
 		simpleEmail.setSSLOnConnect(true);
-		simpleEmail.setAuthentication("pzhlan@qq.com", "wauwaprzeefybhhe");
+		simpleEmail.setAuthentication("pzhlan@qq.com", "授权码");
 		
 		try {
 			simpleEmail.addTo(email);
